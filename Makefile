@@ -1,10 +1,10 @@
 CC = gcc
 CFLAGS = -g -Wall -std=c99
-all: toxic 
-toxic: toxic.o
-	$(CC) $(CFLAGS) -o toxic toxic.o
+all: chem 
+chem: chem.o
+	$(CC) $(CFLAGS) -o chem chem.o
 
-toxic.o: toxic.c
-	$(CC) $(CFLAGS) -c toxic.c
+chem.o: chem.c
+	$(CC) $(CFLAGS) -c chem.c
 clean: 
 	$(RM) $(all)

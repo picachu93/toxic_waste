@@ -6,7 +6,7 @@
 
 * Creation Date : 05-12-2016
 
-* Last Modified : Δευ 05 Δεκ 2016 03:26:13 μμ EET
+* Last Modified : Δευ 05 Δεκ 2016 05:36:00 μμ EET
 
 * Created By :  Stamatios Anoustis
 
@@ -17,6 +17,7 @@ _._._._._._._._._._._._._._._._._._._._._.*/
 #include <stdlib.h>
 
 int A[1501][1501];  //Energy released from ith jth substance reaction.Supposed A in (1,99).
+int EXIT_STATUS = 0;
 
 /*-----------------Main Code-------------------------------------------*/
 
@@ -25,15 +26,45 @@ int main (int argc, char** argv) {
   int N;
   int K;
   scanf("%d", &N);
-  scanf("%d", &K); 
-  for ( int i = 1; i < N; i++) {
+  scanf("%d", &K);
+  printf("%d " ,N);
+  printf("%d\n", K);
+  
+  for ( int i = 0; i < N; i++) {
 
-    for ( int j = 1 ; j < N - i; j++) {
+    A[i][i] = 0;
+  
+  }
 
-      if ( i == j ) {
+  int offset = 1;
+  int j = offset;
+  for ( int i = 0; i < N - 1; i++) {
 
-        A[i,j] = 0;
+    while (j < N) {
 
-      }
+      scanf("%d", &A[i][j]);
+      A[j][i] = A[i][j];
+      j++;
+    }
 
+    offset++;
+    j = offset;
+
+  }
+
+  for ( int i = 0; i < N; i++) {
+
+    for ( int j = 0 ; j < N ; j++) {
+
+      printf( "%d ", A[i][j]);
+
+    } 
+
+    printf("\n");
+
+  }
+
+  return EXIT_STATUS;
+
+}
             
