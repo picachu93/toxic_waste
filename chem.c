@@ -6,7 +6,7 @@
 
 * Creation Date : 05-12-2016
 
-* Last Modified : Δευ 05 Δεκ 2016 05:36:00 μμ EET
+* Last Modified : Τρι 06 Δεκ 2016 03:55:39 μμ EET
 
 * Created By :  Stamatios Anoustis
 
@@ -20,6 +20,23 @@ int A[1501][1501];  //Energy released from ith jth substance reaction.Supposed A
 int EXIT_STATUS = 0;
 
 /*-----------------Main Code-------------------------------------------*/
+int sum (int ii, int jj, int dim) {
+
+  int t_sum = 0;
+  for (int i = ii; i < jj; i++) {
+
+    for ( int j = i + 1; j <= jj; j++) {
+      
+      //printf( "i = %d j= %d the A is %d \n ", i, j, A[i][j]);
+      t_sum = t_sum + A[i][j];
+
+    }
+
+  }
+
+  return t_sum;
+
+}  
 
 int main (int argc, char** argv) {
 
@@ -27,8 +44,6 @@ int main (int argc, char** argv) {
   int K;
   scanf("%d", &N);
   scanf("%d", &K);
-  printf("%d " ,N);
-  printf("%d\n", K);
   
   for ( int i = 0; i < N; i++) {
 
@@ -52,7 +67,7 @@ int main (int argc, char** argv) {
 
   }
 
-  for ( int i = 0; i < N; i++) {
+  /*for ( int i = 0; i < N; i++) {
 
     for ( int j = 0 ; j < N ; j++) {
 
@@ -62,8 +77,9 @@ int main (int argc, char** argv) {
 
     printf("\n");
 
-  }
+  } */
 
+  //printf("sum is %d \n", sum(0, 4, N));
   return EXIT_STATUS;
 
 }
